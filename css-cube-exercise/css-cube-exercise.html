@@ -1,13 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>css cube exercise</title>
     <link rel="stylesheet" href="css-cube-exercise.css">
+    <link rel="stylesheet" href="css-cube-exercise.js">
 </head>
+
 <body>
+    <section>
+        <h1>cube</h1>
+        <div class="scene">
+            <div class="cube">
+                <div class="cube__face cube__face--front">front</div>
+                <div class="cube__face cube__face--back">back</div>
+                <div class="cube__face cube__face--right">right</div>
+                <div class="cube__face cube__face--left">left</div>
+                <div class="cube__face cube__face--top">top</div>
+                <div class="cube__face cube__face-bottom">bottom</div>
+            </div>
+        </div>
+        <div class="controls">
+            <p>
+                <label for="perspective">
+                    perspective
+                    <input class="perspective-range" type="range" min="1" max="1000" value="400" data-units="px">
+                </label>
+            </p>
+            <p>
+                <label for="perspective">
+                    perspective-origin x
+                    <input class="perspective-x-range" type="range" min="1" max="100" value="50" data-units="%">
+                </label>
+            </p>
+            <p>
+                <label for="perspective">
+                    perspective-origin y
+                    <input class="perspective-y-range" type="range" min="1" max="100" value="50" data-units="%">
+                </label>
+            </p>
+            <p>
+                <label for="spin cube">
+                    spin cube
+                    <input class="spin-cube-checkbox" type="checkbox">
+                </label>
+            </p>
+            <p>
+                <label for="backface-checkbox">
+                    backface visible
+                    <input class="backface-checkbox" type="checkbox" checked>
+                </label>
+            </p>
+        </div>
+    </section>
     <section>
         <h1>perspective property</h1>
         <div class="scene">
@@ -19,7 +67,7 @@
             </div>
         </div>
     </section>
-    
+
     <section>
         <h1>center perspective</h1>
         <div class="scene">
@@ -48,20 +96,67 @@
             <div class="panel perspect"></div>
         </div>
     </section>
-    <section>
-        <h1>cube</h1>
-        <div class="scene">
-            <div class="cube">
-                <div class="cube__face cube__face--front">front</div>
-                <div class="cube__face cube__face--back">back</div>
-                <div class="cube__face cube__face--right">right</div>
-                <div class="cube__face cube__face--left">left</div>
-                <div class="cube__face cube__face--top">top</div>
-                <div class="cube__face cube__face-bottom">bottom</div>
-            </div>    
-        </div>
-    </section>
 
-    <script></script>
+    <script src="css-cube-exercise.js"></script>
+    <!-- <script>
+
+        function RangeDisplay(input) {
+            this.input = input;
+            this.output = document.createElement('span');
+            this.output.className = 'range-display';
+            this.units = this.input.getAttribute('data-units') || '';
+            let onChange = this.update.bind(this);
+            this.input.addEventListener('change', onChange);
+            this.input.addEventListener('input', onChange);
+            this.update();
+            this.input.parentNode.appendChild(this.output);
+        }
+
+        RangeDisplay.prototype.update = function () {
+            this.output.textContent = this.input.value + this.units;
+        }
+
+        var ranges = document.querySelectorAll('input[type="range"]');
+        for (var i = 0; i < ranges.length; i++) {
+            new RangeDisplay(ranges[i]);
+        }
+
+        var scene = document.querySelector('.scene');
+        var cube = document.querySelector('.cube');
+        var originX = 50;
+        var originY = 50;
+
+        function updatePerspectiveOrigin() {
+            scene.style.perspectiveOrigin = originX + '% ' + originY + '%';
+        }
+
+        var perspectiveRange = document.querySelector('.perspetive-range');
+        var perspetiveDisplay = perspectiveRange.parentNode.querySelector('.range-display');
+        perspectiveRange.onChange = perspectiveRange.oninput = function () {
+            if (value == '1000px') {
+                value = 'none';
+                perspetiveDisplay.textContent = 'none'
+            }
+            scene.style.perspective = value;
+        };
+        perspectiveRange.onchange();
+
+        var originXRange = document.querySelector('.origin-x-range');
+        originXRange.onchange = originXRange.oninput = function () {
+            originX = originXRange.value;
+            updatePerspectiveOrigin();
+        };
+        originXRange.onchange();
+
+        var originYRange = document.querySelector('.origin-y-range');
+        originYRange.onchange = originYRange.oninput = function () {
+            originX = originXRange.value;
+            updatePerspectiveOrigin();
+        };
+        originYRange.onchange();
+
+
+    </script> -->
 </body>
+
 </html>

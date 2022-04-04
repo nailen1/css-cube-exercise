@@ -18,7 +18,7 @@ section {
     /* border: 1px dashed red; */
     display: grid;
     grid-template-columns: 1fr;
-    gap: 10vh;
+    gap: 1vh;
 }
 
 section .scene {
@@ -121,3 +121,17 @@ section .scene {
 
 .cube.is-backface-hidden .cube__face {
     backface-visibility: hidden;
+}
+
+.controls {
+    border: 1px dashed red;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    height: 250px;
+}
+p {
+    border: 1px dashed green;
+    height: 50px;
+    line-height: 50px;
+}
