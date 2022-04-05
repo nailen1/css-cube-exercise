@@ -14,16 +14,12 @@ function RangeDisplay( input ) {
     // set initial output
     this.update();
     this.input.parentNode.appendChild( this.output );
-    console.log(this)
-    console.log(onChange);
-    console.log(this.input)
-    console.log(this.output)
-    console.log(this.input.parentNode)
   }
   
   RangeDisplay.prototype.update = function() {
     this.output.textContent = this.input.value + this.units;
   };
+  
   /* ==================== init ==================== */
   
   // init RangeDisplays
